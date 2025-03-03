@@ -2,6 +2,8 @@ package com.example.contactlist.adapter
 
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.MotionEvent
@@ -10,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.contactlist.ContactDetailsActivity
 import com.example.contactlist.R
 import com.example.contactlist.model.Contact
 
@@ -35,6 +38,21 @@ class ContactAdapter(private val contactList: List<Contact>) : RecyclerView.Adap
         holder.imgProfile.setImageResource(contact.imageResId) // Assuming you have an image ID
 
 
+        holder.cardView.setOnClickListener { v ->
+            val context = v.context
+
+            // Debugging Log
+            Log.d("ContactAdapter", "Clicked on: ${contact.name}")
+
+            val intent = Intent(context, ContactDetailsActivity::class.java).apply {
+                putExtra("EXTRA_NAME", contact.name)
+                putExtra("EXTRA_PHONE", contact.phone)
+                putExtra("EXTRA_IMAGE", contact.imageResId)
+            }
+            context.startActivity(intent)
+        }
+
+
 
         // 🎯 Scale animation on click (tap effect)
         holder.cardView.setOnClickListener { v ->
@@ -43,6 +61,9 @@ class ContactAdapter(private val contactList: List<Contact>) : RecyclerView.Adap
             }.start()
         }
     }
+
+
+
 
     override fun getItemCount(): Int {
         return contactList.size

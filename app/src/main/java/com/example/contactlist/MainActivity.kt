@@ -33,6 +33,5 @@ class MainActivity : AppCompatActivity() {
         contactList.add(Contact("Nathon Devid", "125-666-5677", R.drawable.user4))
         contactList.add(Contact("Chalkes Brown", "215-616-1277", R.drawable.user5))
         contactList.add(Contact("Kris Brown", "915-666-7217", R.drawable.user6))
-
     }
 }

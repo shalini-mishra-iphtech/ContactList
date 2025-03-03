@@ -34,7 +34,8 @@ class ContactAdapter(private val contactList: List<Contact>) : RecyclerView.Adap
         holder.txtPhone.text = contact.phone
         holder.imgProfile.setImageResource(contact.imageResId) // Assuming you have an image ID
 
-        // 🎯 Touch Effect: Increase Card Size on Press
+
+
         // 🎯 Scale animation on click (tap effect)
         holder.cardView.setOnClickListener { v ->
             v.animate().scaleX(1.05f).scaleY(1.05f).setDuration(100).withEndAction {

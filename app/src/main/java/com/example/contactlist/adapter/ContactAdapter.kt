@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contactlist.ContactDetailActivity
 import com.example.contactlist.R
@@ -16,9 +17,10 @@ class ContactAdapter(private val contactList: List<Contact>) :
     RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
 
     class ContactViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val name: TextView = itemView.findViewById(R.id.detail_name)
-        val phone: TextView = itemView.findViewById(R.id.detail_phone)
-        val profileImage: ImageView = itemView.findViewById(R.id.detail_image)
+        val name: TextView = itemView.findViewById(R.id.txtName)
+        val phone: TextView = itemView.findViewById(R.id.txtPhone)
+        val profileImage: ImageView = itemView.findViewById(R.id.imgProfile)
+        val cardView: CardView = itemView.findViewById(R.id.cardView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
@@ -34,7 +36,7 @@ class ContactAdapter(private val contactList: List<Contact>) :
         holder.profileImage.setImageResource(contact.imageResId)
 
         // Handle click event
-        holder.itemView.setOnClickListener {
+        holder.cardView.setOnClickListener {
             val intent = Intent(holder.itemView.context, ContactDetailActivity::class.java).apply {
                 putExtra("name", contact.name)
                 putExtra("phone", contact.phone)

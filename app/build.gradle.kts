@@ -42,6 +42,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.media3.common.ktx)
     testImplementation(libs.junit)
     implementation ("androidx.recyclerview:recyclerview:1.3.2")
     implementation ("com.google.android.material:material:1.9.0")
